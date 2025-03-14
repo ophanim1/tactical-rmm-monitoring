@@ -21,8 +21,8 @@ A real-time web-based dashboard for monitoring Tactical RMM system metrics. This
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
-cd [repository-name]
+git clone https://github.com/ophanim1/tactical-rmm-monitoring
+cd tactical-rmm-monitoring
 ```
 
 2. Install required dependencies:

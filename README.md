@@ -53,25 +53,6 @@ python app.py
 
 The dashboard will be available at `http://localhost:5000`
 
-## Security Considerations
-
-⚠️ **Important: Before pushing to GitHub** ⚠️
-
-1. Ensure `config.json` is in your `.gitignore` file
-2. Never commit sensitive information such as:
-   - API keys
-   - Server URLs
-   - Credentials
-   - SSL certificates
-   - Private IPs
-
-3. Verify your `.gitignore` contains at least:
-```
-config.json
-__pycache__/
-*.pyc
-.env
-*.log
 ```
 
 4. Use `config.example.json` as a template with dummy values for version control
@@ -95,10 +76,6 @@ Create a `config.example.json` file with the following structure:
 3. Commit your changes
 4. Push to the branch
 5. Create a Pull Request
-
-## License
-
-[Your chosen license]
 
 ## Support
 

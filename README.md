@@ -1,6 +1,6 @@
 # Tactical RMM Monitoring Dashboard
 
-A real-time web-based dashboard for monitoring Tactical RMM system metrics. This dashboard provides a clean and intuitive interface for viewing system status, resource usage, service health, and connection status.
+A proof-of-concept for a real-time web-based dashboard for monitoring Tactical RMM system metrics. This dashboard provides a clean and intuitive interface for viewing system status, resource usage, service health, and connection status.
 
 ## Features
 

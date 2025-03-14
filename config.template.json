@@ -1,0 +1,6 @@
+{
+    "api_url": "https://api.example.com/argument1/argument2",
+    "headers": {
+        "X-Mon-Token": "your-token-here"
+    }
+} 

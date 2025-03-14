@@ -1,21 +1,110 @@
+/* Theme Variables */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --text-muted: #6c757d;
+    --card-bg: #fff;
+    --card-border: none;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --header-bg: #fff;
+    --json-bg: #f8f9fa;
+    --metric-color: #007bff;
+    --metric-label: #6c757d;
+    --connection-item-bg: #fff;
+    --service-border: #eee;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --card-bg: #2d2d2d;
+    --card-border: 1px solid #404040;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    --header-bg: #2d2d2d;
+    --json-bg: #2d2d2d;
+    --metric-color: #3391ff;
+    --metric-label: #a0a0a0;
+    --connection-item-bg: #2d2d2d;
+    --service-border: #404040;
+}
+
 body {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--header-bg);
+    box-shadow: var(--card-shadow);
     margin-bottom: 2rem;
     padding: 1rem;
     border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider-icon {
+    color: var(--text-color);
+    margin-right: 10px;
 }
 
 .card {
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    border: var(--card-border);
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s, background-color 0.3s ease;
     height: 100%;
     min-height: 300px;
 }
@@ -25,9 +114,13 @@ header {
 }
 
 .card-header {
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
     padding: 1rem;
+}
+
+.card-header h5 {
+    color: var(--text-color);
 }
 
 .card-body {
@@ -57,26 +150,38 @@ header {
 .metric-value {
     font-size: 2rem;
     font-weight: bold;
-    color: #007bff;
+    color: var(--metric-color);
     margin-bottom: 0.5rem;
 }
 
 .metric-label {
-    color: #6c757d;
+    color: var(--metric-label);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
 }
 
 .service-item {
     display: flex;
     align-items: center;
     padding: 0.75rem 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--service-border);
 }
 
 .service-item:last-child {
     border-bottom: none;
+}
+
+.service-item span {
+    color: var(--text-color);
+}
+
+.service-item .small {
+    color: var(--text-muted) !important;
 }
 
 .connection-status {
@@ -87,16 +192,18 @@ header {
 
 .connection-item {
     padding: 1.5rem;
-    background-color: #fff;
+    background-color: var(--connection-item-bg);
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: var(--card-shadow);
 }
 
-.chart-container {
-    position: relative;
-    height: 180px;
-    width: 100%;
+.connection-item .fw-bold {
+    color: var(--text-color);
+}
+
+.connection-item .small {
+    color: var(--text-muted) !important;
 }
 
 .resource-chart {
@@ -107,11 +214,11 @@ header {
 }
 
 .resource-chart:first-child {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .resource-chart h6 {
-    color: #6c757d;
+    color: var(--text-muted);
     font-weight: 600;
     margin-bottom: 1rem;
 }
@@ -125,7 +232,7 @@ header {
 
 /* Raw JSON styles */
 .json-content {
-    background-color: #f8f9fa;
+    background-color: var(--json-bg);
     border-radius: 4px;
     padding: 1rem;
     margin: 0;
@@ -140,4 +247,10 @@ header {
 /* Adjust min-height for the raw JSON card */
 .card:has(#rawJson) {
     min-height: auto;
+}
+
+.chart-container {
+    position: relative;
+    height: 220px;
+    width: 100%;
 } 

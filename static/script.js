@@ -1,3 +1,32 @@
+// Theme Switching
+function setTheme(themeName) {
+    document.documentElement.setAttribute('data-theme', themeName);
+    localStorage.setItem('theme', themeName);
+}
+
+function toggleTheme() {
+    if (localStorage.getItem('theme') === 'dark') {
+        setTheme('light');
+    } else {
+        setTheme('dark');
+    }
+}
+
+// Initialize theme
+(function () {
+    if (localStorage.getItem('theme') === 'dark') {
+        setTheme('dark');
+        document.getElementById('theme-toggle').checked = true;
+    } else {
+        setTheme('light');
+        document.getElementById('theme-toggle').checked = false;
+    }
+
+    document.getElementById('theme-toggle').addEventListener('change', function(e) {
+        toggleTheme();
+    });
+})();
+
 // Function to fetch data from the API
 async function fetchData() {
     try {
